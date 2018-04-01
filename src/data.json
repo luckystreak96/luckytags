@@ -1,0 +1,14 @@
+{
+    "pikapak":{
+        "data": [
+            {
+                "tags": "test",
+                "text": "Hi there!"
+            },
+            {
+                "tags": "test,hi",
+                "text": "2 tags!"
+            }
+        ]
+    }
+}
