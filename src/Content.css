@@ -4,12 +4,12 @@
     text-align: left;
 }
 
-input[type=text]{
+input[name=search]{
   width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus{
+input[name=search]:focus{
   width:30%;
 }

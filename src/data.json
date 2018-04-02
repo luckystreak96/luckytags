@@ -2,12 +2,16 @@
     "pikapak":{
         "data": [
             {
-                "tags": "test",
-                "text": "Hi there!"
+                "tags": "tag1",
+                "text": "text1"
             },
             {
-                "tags": "test,hi",
-                "text": "2 tags!"
+                "tags": "tag2",
+                "text": "text2"
+            },
+            {
+                "tags": "tag3",
+                "text": "text3"
             }
         ]
     }
