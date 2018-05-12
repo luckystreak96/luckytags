@@ -18,7 +18,7 @@ class App extends Component {
         </p>
         <div className="Content">
           <AddTag className="addTag" />
-          <TagsResult className="tagsResult" />
+          <TagsResult className="tagsResult" searchValue=""/>
         </div>
       </div>
     );

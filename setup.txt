@@ -1,0 +1,10 @@
+MongoDB as database
+Mongoose used to query the db
+express used as backend server to query
+React-JS for the front-end
+C:/data/db is the directory for db files
+
+
+To start:
+Open a terminal and run the command "mongod"
+Open another terminal and run "npm start"
