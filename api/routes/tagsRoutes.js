@@ -8,7 +8,7 @@ module.exports = function(app) {
     .post(tagsList.create_a_tag);
 
 
-  app.route('/tags/:tagid')
+  app.route('/tags/:name')
     .get(tagsList.read_a_tag)
     .put(tagsList.update_a_tag)
     .delete(tagsList.delete_a_tag);

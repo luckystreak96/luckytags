@@ -33,8 +33,9 @@ exports.read_a_tag = function(req, res) {
 };
 
 
+// Used to add a new tag
 exports.update_a_tag = function(req, res) {
-  Tags.findOneAndUpdate({_id: req.params.tagid}, req.body, {new: true}, function(err, tag) {
+  Tags.findOneAndUpdate({name: req.params.name}, {$push: req.body}, {new: true}, function(err, tag) {
     if (err)
       res.send(err);
     res.json(tag);

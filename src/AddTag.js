@@ -1,27 +1,34 @@
 import React, { Component } from "react";
 
-var json = require("./data.json");
-
-function UpdateData() {
-  /*const fs = require("fs");
-  fs.unlink("./data.json");
-  fs.writeFile("./data.json", JSON.stringify(json));*/
-}
-
 class AddTag extends Component {
   constructor(props) {
     super(props);
     this.executeAdd = this.executeAdd.bind(this);
   }
 
-  executeAdd(e) {
-    var tag = document.getElementById("newTag").value;
-    var text = document.getElementById("newText").value;
-    json.pikapak.data.push({ tags: tag, text: text });
+  callApi = async () => {
+    var x = {data: {tags: document.getElementById("newTag").value, text: document.getElementById("newText").value}};
 
-    UpdateData();
+    const final = await fetch("/tags/pikapak", {body: JSON.stringify(x), method: 'PUT', headers: {   
+      'user-agent': 'Mozilla/4.0 MDN Example',
+      'content-type': 'application/json'
+    }});
+
+    if (final.status !== 200) throw Error(final.json().message);
+
+    return final;
+  };
+
+  executeAdd(e) {
+
+    this.callApi()
+      .then(res => console.debug(res))//this.apiCallback(res))
+      .catch(err => console.log(err));
 
     e.preventDefault();
+    this.props.onClick();
+    document.getElementById("newTag").value = "";
+    document.getElementById("newText").value = "";
   }
 
   render() {

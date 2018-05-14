@@ -9,9 +9,15 @@ class TagsResult extends Component {
     //this.componentDidMount = this.componentDidMount.bind(this);
     this.apiCallback = this.apiCallback.bind(this);
     this.renderTable = this.renderTable.bind(this);
+    this.updateTags = this.updateTags.bind(this);
   }
 
   componentDidMount() {
+    this.updateTags();
+  }
+
+  updateTags()
+  {
     this.callApi()
       .then(res => {this.apiCallback(res)})//this.apiCallback(res))
       .catch(err => console.log(err));
@@ -23,7 +29,7 @@ class TagsResult extends Component {
     // Only see values from user called pikapak
     cloneJSON = cloneJSON.filter(item => {return item.name === "pikapak"});
     this.setState({value: cloneJSON});
-    console.debug(cloneJSON);
+    //console.debug(cloneJSON);
     for (var i = 0; i < this.state.response.length; i++) {
       // look for the entry with a matching `code` value
       if (this.state.response[i].name === "pikapak") {

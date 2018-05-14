@@ -6,6 +6,19 @@ import "./App.css";
 import "./Content.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {search: ""};
+    this.updateTagsResult = this.updateTagsResult.bind(this);
+  }
+
+  updateTagsResult()
+  {
+    this.setState({search: ""});
+    console.debug("Supposed to update");
+    this.tagsResult.updateTags();
+  }
+
   render() {
     return (
       <div className="App">
@@ -17,8 +30,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <div className="Content">
-          <AddTag className="addTag" />
-          <TagsResult className="tagsResult" searchValue=""/>
+          <AddTag className="addTag" onClick={this.updateTagsResult} />
+          <TagsResult ref={instance => {this.tagsResult = instance;}} className="tagsResult" searchValue={this.state.search}/>
         </div>
       </div>
     );
